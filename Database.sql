@@ -1,5 +1,5 @@
 create table category (
-	category_id integer constraint category_id_nn not null, 
+	category_id varchar(20) constraint category_id_nn not null, 
 	name varchar(50)
 );
 
@@ -23,7 +23,7 @@ create table product(
 	images varchar(50) not null, 
 	create_date date not null, 
 	update_date date not null, 
-	category_id integer not null
+	category_id varchar(20) not null
 );
 
 alter table product 

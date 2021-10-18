@@ -23,6 +23,8 @@ public class Rating {
     private Integer like;
     @Column(name="rating_dislike")
     private Integer dislike;
+    @Column(name="comment")
+    private String comment;
 
     @JsonIgnore
     @ManyToOne

@@ -23,6 +23,6 @@ public class Role {
 
     @JsonIgnore
     @OneToMany(mappedBy = "role")
-    List<Authorize> authorizes;
+    List<Account> account;
 
 }

@@ -36,7 +36,8 @@ public class Account implements Serializable {
     private String address;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "account")
-    List<Authorize> authorizes;
+    @ManyToOne
+    @JoinColumn(name="role_id")
+    Role role;
 
 }

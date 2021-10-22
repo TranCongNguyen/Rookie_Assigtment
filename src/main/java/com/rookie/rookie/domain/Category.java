@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -17,11 +18,11 @@ import java.util.List;
 public class Category implements Serializable {
     @Id
     @Column(name="category_id")
-    private String categoryId;
+    private Integer categoryId;
     @Column(name="name")
     private String cateName;
 
     @JsonIgnore
     @OneToMany(mappedBy = "category")
-    List<Product> product ;
+    List<Product> product = new ArrayList<>();
 }

@@ -17,33 +17,36 @@ import java.util.List;
 @Table(name="Products")
 public class Product implements Serializable {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="product_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_id")
     private Integer productId;
 
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name="price")
+    @Column(name = "price")
     private Double price;
 
-    @Column(name="images")
+    @Column(name = "images")
     private String images;
 
     @Temporal(TemporalType.DATE)
-    @Column(name="create_date")
+    @Column(name = "create_date")
     private Date createDate = new Date();
 
     @Temporal(TemporalType.DATE)
-    @Column(name="update_date")
+    @Column(name = "update_date")
     private Date updateDate = new Date();
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name="category_id")
-    Category category;
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     @JsonIgnore
     @OneToMany(mappedBy = "product")
     List<Rating> rating;
+
+
 }
+

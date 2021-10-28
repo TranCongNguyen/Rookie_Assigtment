@@ -45,6 +45,8 @@ public class Review {
   @NotNull
   private Short numOfStar;
 
+  private String description;
+
   private short img;
 
   @Column(name = "create_date")

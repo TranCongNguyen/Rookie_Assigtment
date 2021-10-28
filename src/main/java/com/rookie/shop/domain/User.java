@@ -36,14 +36,11 @@ public class User {
   @JoinColumn(name = "role_id")
   private Role role;
 
-  @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-  private Collection<User> user;
-
   @Column(name = "username", length = 50)
   @NotNull
   private String username;
 
-  @Column(name = "password", length = 20)
+  @Column(name = "password", length = 40)
   @NotNull
   private String password;
 

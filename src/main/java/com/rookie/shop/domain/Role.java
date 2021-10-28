@@ -27,7 +27,7 @@ public class Role {
             @Parameter(name="sequence_name", value="role_sequence"),
             @Parameter(name="increment_size", value="1")
     })
-    private Long id;
+    private Short id;
 
     @Enumerated(EnumType.STRING)
     @NaturalId

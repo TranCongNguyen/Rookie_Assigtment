@@ -14,7 +14,7 @@ import java.util.Collection;
 @Entity
 @Table(name = "Roles",uniqueConstraints = {
         @UniqueConstraint(columnNames = {"id"})},indexes = {
-        @Index(name = "rl_us_index",columnList = "id",unique = true)
+        @Index(name = "rl_us_index",columnList = "roleName",unique = true)
 })
 @AllArgsConstructor
 @NoArgsConstructor

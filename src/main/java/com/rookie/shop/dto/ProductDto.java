@@ -27,6 +27,15 @@ public class ProductDto {
     private Double weight;
 
     @NotNull
+    private Integer size;
+
+    @NotNull
+    private String memory;
+
+    @NotNull
+    private String ram;
+
+    @NotNull
     private LocalDateTime createDate;
 
     @NotNull

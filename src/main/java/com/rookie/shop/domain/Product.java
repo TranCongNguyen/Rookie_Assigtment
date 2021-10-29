@@ -43,6 +43,15 @@ public class Product {
     private Double weight;
 
     @NotNull
+    private Integer size;
+
+    @NotNull
+    private String memory;
+
+    @NotNull
+    private String ram;
+
+    @NotNull
     @Column(name="create_date")
     private LocalDateTime createDate;
 

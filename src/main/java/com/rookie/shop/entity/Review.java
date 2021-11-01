@@ -1,4 +1,4 @@
-package com.rookie.shop.domain;
+package com.rookie.shop.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,9 +13,10 @@ import org.hibernate.annotations.Parameter;
 
 @Entity
 @Table(
-    name = "Reviews", uniqueConstraints = {
-            @UniqueConstraint(columnNames = {"id"})},
-    indexes = {@Index(name = "rv_us_index", columnList = "id", unique = true)})
+    name = "Reviews", indexes = {
+            @Index(name = "rv_us_index", columnList = "user_id"),
+            @Index(name = "rv_od_index",columnList = "order_id")
+})
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

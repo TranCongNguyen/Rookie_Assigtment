@@ -21,11 +21,4 @@ public class CategoryDto {
 
     @NotBlank
     private String description;
-
-    @NotNull
-    private Long subCategoryId;
-
-    @NotNull
-    private Long productId;
-
 }

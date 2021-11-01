@@ -1,4 +1,4 @@
-package com.rookie.shop.domain;
+package com.rookie.shop.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,6 +8,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -15,9 +16,8 @@ import java.util.Collection;
 import org.hibernate.annotations.Parameter;
 
 @Entity
-@Table(name = "Orders", uniqueConstraints = {
-            @UniqueConstraint(columnNames = {"id"})}, indexes = {
-            @Index(name = "od_on_index", columnList = "id", unique = true)})
+@Table(name = "Orders", indexes = {
+            @Index(name = "od_add_index", columnList = "address_id")})
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -40,15 +40,19 @@ public class Order {
   @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
   private Collection<Review> review;
 
+  @ManyToOne
+  @JoinColumn(name = "address_id",nullable = false)
+  private Address address;
+
+  @ManyToOne
+  @JoinColumn(name="user_id",nullable = false)
+  private User user;
+
   @Column(name = "order_date")
   @NotNull
   private LocalDateTime oderDate;
 
   @NotNull private Long amount;
 
-  @Enumerated(EnumType.STRING)
-  @NaturalId
-  @Column(name = "order_status", length = 50)
-  @NotNull
-  private OrderStatus orderStatus;
+  @NotBlank private String status;
 }

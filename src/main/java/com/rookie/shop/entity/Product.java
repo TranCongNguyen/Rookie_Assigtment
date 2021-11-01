@@ -1,4 +1,4 @@
-package com.rookie.shop.domain;
+package com.rookie.shop.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="Products", uniqueConstraints = {
@@ -37,33 +37,44 @@ public class Product {
     private String productName;
 
     @NotBlank
-    private String imageUrl;
+    private String model;
+
+    @NotBlank
+    private String size;
 
     @NotNull
-    private Double weight;
+    private Float weight;
+
+    @NotBlank
+    private String material;
+
+    @NotBlank
+    private String description;
 
     @NotNull
-    private Integer size;
+    private Short warranty;
 
     @NotNull
-    private String memory;
-
-    @NotNull
-    private String ram;
+    private Short img;
 
     @NotNull
     @Column(name="create_date")
     private LocalDateTime createDate;
 
-    @Column(name="status")
-    private Boolean status;
+    @Column(name="update_date")
+    private LocalDateTime updateDate;
 
     @ManyToOne
     @JoinColumn(name="category_id", nullable = false)
     private Category category;
 
+    @ManyToOne
+    @JoinColumn(name="brand_id",nullable = false)
+    private Brand brand;
+
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private Collection<ProductDetail> productDetail;
+
 
 
 

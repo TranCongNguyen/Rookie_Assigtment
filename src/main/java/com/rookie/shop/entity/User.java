@@ -1,4 +1,4 @@
-package com.rookie.shop.domain;
+package com.rookie.shop.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,14 +8,15 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
 
 @Entity
 @Table(
-    name = "Users",
-    uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})},
-    indexes = {@Index(name = "us_un_index", columnList = "username", unique = true)})
+    name = "Users", indexes = {
+            @Index(name = "us_rl_index",columnList = "role_id")
+    })
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -32,25 +33,35 @@ public class User {
       })
   private Long id;
 
-  @ManyToOne
-  @JoinColumn(name = "role_id")
-  private Role role;
-
-  @Column(name = "username", length = 50)
-  @NotNull
+  @NotBlank
   private String username;
 
-  @Column(name = "password", length = 40)
-  @NotNull
+  @NotBlank
   private String password;
 
-  @Column(name = "full_name")
   @NotNull
-  private String fullName;
+  private Short status;
 
-  @NotNull private String email;
+  @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
+  @PrimaryKeyJoinColumn
+  private Customer customer;
 
-  @NotNull private String phone;
+  @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
+  @PrimaryKeyJoinColumn
+  private Employee employee;
 
-  @NotNull private Boolean gender;
+  @ManyToOne
+  @JoinColumn(name = "role_id",nullable = false)
+  private Role role;
+
+  @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+  private Collection<Address> address;
+
+  @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+  private Collection<Order> orders;
+
+  @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+  private Collection<Review> review;
+
+
 }

@@ -1,4 +1,4 @@
-package com.rookie.shop.domain;
+package com.rookie.shop.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import java.util.Collection;
 @Entity
 @Table(name = "Roles",uniqueConstraints = {
         @UniqueConstraint(columnNames = {"id"})},indexes = {
-        @Index(name = "rl_us_index",columnList = "roleName",unique = true)
+        @Index(name = "rl_us_index",columnList = "role_name")
 })
 @AllArgsConstructor
 @NoArgsConstructor

@@ -1,4 +1,4 @@
-package com.rookie.shop.domain;
+package com.rookie.shop.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,48 +8,40 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Collection;
-
 
 @Entity
-@Table(name="ProductDetails",uniqueConstraints = {
+@Table(name = "CartItem",uniqueConstraints = {
         @UniqueConstraint(columnNames = {"id"})
-},indexes = {
-        @Index(name="productDetails_on_index",columnList = "id",unique = true)
+} ,indexes = {
+        @Index(name="ci_on_index",columnList = "id",unique = true)
 })
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class ProductDetail {
+public class CartItem {
     @Id
     @GeneratedValue(generator = "Sequence-generator")
     @GenericGenerator(name= "sequence_generator", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
-            @Parameter(name="sequence_name", value="product_detail_sequence"),
+            @Parameter(name="sequence_name", value="cartItem_sequence"),
             @Parameter(name="increment_size", value="1")
     })
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name="product_id",nullable=false)
-    private Product product;
+    @JoinColumn(name="order_id",nullable = false)
+    private Order order;
 
-    @NotBlank
-    private String color;
+    @ManyToOne
+    @JoinColumn(name="product_details_id",nullable = false)
+    private ProductDetail productDetail;
 
     @NotNull
     private Integer quantity;
 
     @NotNull
     private Long price;
-
-    @OneToMany(mappedBy = "productDetail",fetch = FetchType.LAZY)
-    private Collection<CartItem> cartItem;
-
-    @OneToMany(mappedBy = "productDetail",fetch = FetchType.LAZY)
-    private Collection<Review> reviews;
 
 
 }

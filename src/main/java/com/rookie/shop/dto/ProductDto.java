@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,29 +22,34 @@ public class ProductDto {
     private String productName;
 
     @NotBlank
-    private String imageUrl;
+    private String model;
+
+    @NotBlank
+    private String size;
 
     @NotNull
-    private Double weight;
+    private Float weight;
+
+    @NotBlank
+    private String material;
+
+    @NotBlank
+    private String description;
 
     @NotNull
-    private Integer size;
+    private Short warranty;
 
     @NotNull
-    private String memory;
-
-    @NotNull
-    private String ram;
+    private List<Short> img;
 
     @NotNull
     private LocalDateTime createDate;
 
-    @NotNull
-    private Boolean status;
+    private LocalDateTime updateDate;
 
     @NotNull
     private Long categoryId;
 
     @NotNull
-    private Long productDetailId;
+    private Long brandId;
 }

@@ -1,4 +1,4 @@
-package com.rookie.shop.domain;
+package com.rookie.shop.entity;
 
 
 import lombok.AllArgsConstructor;
@@ -40,8 +40,5 @@ public class Category {
 
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     private Collection<Product> product;
-
-    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
-    private Collection<SubCategory> subCategories;
 
 }

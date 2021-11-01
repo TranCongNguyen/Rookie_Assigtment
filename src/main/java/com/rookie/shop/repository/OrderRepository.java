@@ -1,6 +1,6 @@
 package com.rookie.shop.repository;
 
-import com.rookie.shop.domain.Order;
+import com.rookie.shop.entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

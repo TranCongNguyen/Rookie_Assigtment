@@ -26,7 +26,19 @@ public class ErrorCode {
     public final static String ERR_ROLE_NAME_ID_NOT_FOUND = "ERR_ROLE_NAME_ID_NOT_FOUND";
 
     // USER
+    public final static  String ERR_USER_ID_NOT_FOUND = "ERR_USER_ID_NOT_FOUND";
+    public final static  String ERR_USER_LOCKED ="ERR_USER_LOCKED";
+    public final static  String ERR_USERNAME_NOT_FOUND = "ERR_USERNAME_NOT_FOUND";
+    public final static String ERR_SAVE_USER ="ERR_SAVE_USER";
+    public final static String ERR_USERNAME_IS_TAKEN = "ERR_USERNAME_IS_TAKEN";
 
+    // CUSTOMER
+    public final static String ERR_SAVE_CUSTOMER ="ERR_SAVE_CUSTOMER";
+    public final static String ERR_EMAIL_IS_TAKEN ="ERR_EMAIL_IS_TAKEN";
+    public final static String ERR_PHONE_IS_TAKEN = "ERR_PHONE_IS_TAKEN";
+
+    // EMPLOYEE
+    public final static String ERR_SAVE_EMPLOYEE ="ERR_SAVE_EMPLOYEE";
 
     // CONVERTER
     public final static  String ERR_CONVERTER ="ERR_CONVERTER";

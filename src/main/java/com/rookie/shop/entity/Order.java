@@ -17,7 +17,8 @@ import org.hibernate.annotations.Parameter;
 
 @Entity
 @Table(name = "Orders", indexes = {
-            @Index(name = "od_add_index", columnList = "address_id")})
+            @Index(name = "od_us_index",columnList = "user_id")
+})
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -51,6 +52,9 @@ public class Order {
   @Column(name = "order_date")
   @NotNull
   private LocalDateTime oderDate;
+
+  @Column(name="update_date")
+  private LocalDateTime updateDate;
 
   @NotNull private Long amount;
 

@@ -8,14 +8,17 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(
     name = "Users", indexes = {
-            @Index(name = "us_rl_index",columnList = "role_id")
+            @Index(name = "us_name_index",columnList = "username")
     })
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,36 +26,33 @@ import java.util.Collection;
 @Setter
 public class User {
   @Id
-  @GeneratedValue(generator = "Sequence-generator")
-  @GenericGenerator(
-      name = "sequence_generator",
-      strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-      parameters = {
-        @Parameter(name = "sequence_name", value = "user_sequence"),
-        @Parameter(name = "increment_size", value = "1")
-      })
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   @NotBlank
+  @Size(max = 20)
   private String username;
 
   @NotBlank
+  @Size(max = 120)
   private String password;
 
-  @NotNull
-  private Short status;
+  @NotBlank
+  private String fullName;
 
-  @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
-  @PrimaryKeyJoinColumn
-  private Customer customer;
+  @NotBlank
+  @Size(max = 50)
+  @Email
+  private String email;
 
-  @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
-  @PrimaryKeyJoinColumn
-  private Employee employee;
+  @NotBlank
+  private String phone;
 
-  @ManyToOne
-  @JoinColumn(name = "role_id",nullable = false)
-  private Role role;
+  @ManyToMany(fetch = FetchType.LAZY)
+  @JoinTable(name="user_role",
+              joinColumns = @JoinColumn(name="user_id"),
+              inverseJoinColumns = @JoinColumn(name="role_id"))
+  private Set<Role> roles = new HashSet<>();
 
   @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
   private Collection<Address> address;
@@ -63,5 +63,12 @@ public class User {
   @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
   private Collection<Review> review;
 
+  public User(String username, String fullName, String email, String phone, String password) {
+    this.username = username;
+    this.fullName = fullName;
+    this.email = email;
+    this.phone = phone;
+    this.password = password;
+  }
 
 }

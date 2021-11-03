@@ -12,29 +12,19 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "Roles",uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"id"})},indexes = {
-        @Index(name = "rl_us_index",columnList = "role_name")
-})
+@Table(name = "Roles")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 public class Role {
     @Id
-    @GeneratedValue(generator = "Sequence-generator")
-    @GenericGenerator(name= "sequence_generator", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
-            @Parameter(name="sequence_name", value="role_sequence"),
-            @Parameter(name="increment_size", value="1")
-    })
-    private Short id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Enumerated(EnumType.STRING)
-    @NaturalId
-    @Column(name = "role_name",length = 50)
-    private RoleName roleName;
+    @Column(length = 50)
+    private RoleName name;
 
-    @OneToMany(mappedBy = "role")
-    private Collection<User> user;
 
 }

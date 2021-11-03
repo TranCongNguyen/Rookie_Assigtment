@@ -31,15 +31,20 @@ public class ErrorCode {
     public final static  String ERR_USERNAME_NOT_FOUND = "ERR_USERNAME_NOT_FOUND";
     public final static String ERR_SAVE_USER ="ERR_SAVE_USER";
     public final static String ERR_USERNAME_IS_TAKEN = "ERR_USERNAME_IS_TAKEN";
-
-    // CUSTOMER
-    public final static String ERR_SAVE_CUSTOMER ="ERR_SAVE_CUSTOMER";
-    public final static String ERR_EMAIL_IS_TAKEN ="ERR_EMAIL_IS_TAKEN";
-    public final static String ERR_PHONE_IS_TAKEN = "ERR_PHONE_IS_TAKEN";
-
-    // EMPLOYEE
-    public final static String ERR_SAVE_EMPLOYEE ="ERR_SAVE_EMPLOYEE";
+    public final static String ERR_EMAIL_IS_TAKEN = "ERR_EMAIL_IS_TAKEN";
 
     // CONVERTER
     public final static  String ERR_CONVERTER ="ERR_CONVERTER";
+
+    // CATEGORY
+    public  final static String ERR_CATEGORY_ID_NOT_FOUND = "ERR_CATEGORY_ID_NOT_FOUND";
+    public final static String ERR_SAVE_CATEGORY = "ERR_SAVE_CATEGORY";
+    public final static String ERR_UPDATE_CATEGORY = "ERR_UPDATE_CATEGORY";
+    public final static String ERR_DELETE_CATEGORY ="ERR_DELETE_CATEGORY";
+
+    // BRAND
+    public final static String ERR_BRAND_ID_NOT_FOUND = "ERR_BRAND_ID_NOT_FOUND";
+
+    // SEARCH
+    public final static String ERR_SEARCH_KEYWORD_NOT_FOUND = "ERR_SEARCH_KEYWORD_NOT_FOUND ";
 }

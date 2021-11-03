@@ -21,17 +21,13 @@ public class SuccessCode {
     public final static String SUCCESS_UPDATE_REVIEW = "SUCCESS_UPDATE_REVIEW";
     public final static String SUCCESS_DELETE_REVIEW = "SUCCESS_DELETE_REVIEW";
 
-    // CUSTOMER
-    public final static String SUCCESS_CUSTOMER_LOGIN = "SUCCESS_CUSTOMER_LOGIN";
-    public final static String SUCCESS_CUSTOMER_SIGN_UP = "SUCCESS_CUSTOMER_SIGN_UP";
-    public final static String SUCCESS_GET_ALL_CUSTOMER = "SUCCESS_GET_ALL_CUSTOMER";
-    public final static String SUCCESS_GET_CUSTOMER = "SUCCESS_GET_CUSTOMER";
+    // USER
+    public final static String SUCCESS_USER_LOGIN = "SUCCESS_USER_LOGIN";
+    public final static String SUCCESS_USER_SIGN_UP = "SUCCESS_USER_SIGN_UP";
+    public final static String SUCCESS_GET_ALL_USER = "SUCCESS_GET_ALL_USER";
+    public final static String SUCCESS_GET_USER = "SUCCESS_GET_USER";
 
-    //EMPLOYEE
-    public final static String SUCCESS_EMPLOYEE_LOGIN = "SUCCESS_EMPLOYEE_LOGIN";
-    public final static String SUCCESS_EMPLOYEE_SIGN_UP = "SUCCESS_EMPLOYEE_SIGN_UP";
-    public final static String SUCCESS_GET_ALL_EMPLOYEE  = "SUCCESS_GET_ALL_EMPLOYEE";
-    public final static String SUCCESS_GET_EMPLOYEE = "SUCCESS_GET_EMPLOYEE";
+
 
     // CONVERTER
     public final static String SUCCESS_CONVERTER = "SUCCESS_CONVERTER";

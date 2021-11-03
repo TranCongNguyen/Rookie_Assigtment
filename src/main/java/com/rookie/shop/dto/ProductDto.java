@@ -1,13 +1,17 @@
 package com.rookie.shop.dto;
 
+import com.rookie.shop.entity.ProductDetail;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.List;
 
 @AllArgsConstructor
@@ -50,6 +54,10 @@ public class ProductDto {
     @NotNull
     private Long categoryId;
 
+
     @NotNull
     private Long brandId;
+
+    @NotEmpty
+    private Collection<ProductDetail> productDetailId;
 }

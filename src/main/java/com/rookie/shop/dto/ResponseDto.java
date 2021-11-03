@@ -1,7 +1,16 @@
 package com.rookie.shop.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class ResponseDto {
 
     private LocalDateTime time = LocalDateTime.now();
@@ -9,10 +18,4 @@ public class ResponseDto {
     private Object data;
     private String successCode;
 
-    public ResponseDto(LocalDateTime time, String errorCode, Object data, String successCode) {
-        this.time = time;
-        this.errorCode = errorCode;
-        this.data = data;
-        this.successCode = successCode;
-    }
 }

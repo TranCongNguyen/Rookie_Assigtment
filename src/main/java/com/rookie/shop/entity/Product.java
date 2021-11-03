@@ -15,8 +15,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name="Products", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"product_name"})}, indexes = {
+@Table(name="Products",indexes = {
         @Index(name = "product_on_index",columnList = "product_name",unique = true)
 })
 @AllArgsConstructor
@@ -76,6 +75,19 @@ public class Product {
     private Collection<ProductDetail> productDetail;
 
 
+    public Product(String productName, String model, String size, Float weight, String description, Short warranty, Short img, Brand brand, Category category,String material, LocalDateTime now) {
+        this.productName = productName;
+        this.model = model;
+        this.size = size;
+        this.weight = weight;
+        this.material = material;
+        this.description = description;
+        this.warranty = warranty;
+        this.img = img;
+        this.createDate = now;
+        this.category = category;
+        this.brand = brand;
 
+    }
 
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="SOF302_WebBanHang" />
+        <module name="fourmen" />
+        <module name="backend-asset-manager" />
+        <module name="J6Store" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="backend-asset-manager (1)" target="11" />
+      <module name="fourmen (1)" target="11" />
+      <module name="jpa-hibernate" target="1.8" />
+      <module name="rookie" target="11" />
+      <module name="spring-cors-swagger" target="1.8" />
+      <module name="spring-data-jpa" target="1.8" />
+      <module name="spring-security" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="J6Store" options="-parameters" />
+      <module name="SOF302_WebBanHang" options="-parameters" />
+      <module name="backend-asset-manager" options="-parameters" />
+      <module name="backend-asset-manager (1)" options="-parameters" />
+      <module name="fourmen" options="-parameters" />
+      <module name="fourmen (1)" options="-parameters" />
+      <module name="rookie" options="-parameters" />
+      <module name="spring-cors-swagger" options="-parameters" />
+      <module name="spring-data-jpa" options="-parameters" />
+      <module name="spring-security" options="-parameters" />
+    </option>
+  </component>
+</project>
